@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="seeWhatsInPockets()">See Contents of Pocket</button> <br>
+    <div id="pocketDiv"></div>
+
+
+
+    <script>
+        const pocketDiv = document.getElementById('pocketDiv');
+        const pocketStuff = ['Hat', 'Pencil', 'Dinasaur', 'Showercap', 'Piece of Tape'];
+
+        
+        function seeWhatsInPockets() {
+            for(let i = 0; i < pocketStuff.length; i++) {
+                pocketDiv.innerHTML += `på runde ${i} i loopen så ser jeg: ${pocketStuff[i]} <br>`;
+            }
+        }
+    </script>
+</body>
+</html>

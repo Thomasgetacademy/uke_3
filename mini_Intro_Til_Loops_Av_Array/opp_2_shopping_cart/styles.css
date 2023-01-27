@@ -1,0 +1,11 @@
+h3 {
+    display: inline;
+}
+
+.removeButton {
+    margin-left: 10px;
+}
+
+.lineThrough {
+    text-decoration: line-through;
+}

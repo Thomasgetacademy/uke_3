@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #divToChange {
+        height: 100px;
+        width: 100px;
+        background-color: purple;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p id="app"></p>
+
+    <script>
+      // Model
+
+      let chosenColor = document.getElementById("colorsToPick");
+      let color2 = "";
+
+      // View
+
+      updateView();
+
+      function updateView() {
+        html = /* HTML */ ` <select id="colorsToPick">
+            <option onclick="changeDivColor(this)" value="black">Black</option>
+            <option onclick="changeDivColor(this)" value="darkblue">
+              Darkblue
+            </option>
+            <option onclick="changeDivColor(this)" value="lightgray">
+              Light Gray
+            </option>
+            <option onclick="changeDivColor(this)" value="lightgreen">
+              Light Green
+            </option>
+            <option onclick="changeDivColor(this)" value="red">Red</option>
+          </select>
+          <div id="divToChange" style='background-color: ${color2};';>
+            <p>test</p>
+          </div>`;
+        document.getElementById("app").innerHTML = html;
+      }
+
+      // Controller
+
+      function changeDivColor(pickedColor) {
+        color2 = pickedColor.value;
+        updateView();
+        // document.getElementById('divToChange').style.backgroundColor = pickedColor.value;
+        if (pickedColor.value === "black" || "darkblue") {
+          document.getElementById("divToChange").style.color = "white";
+        } else {
+          document.getElementById("divToChange").style.color = "black";
+        }
+      }
+    </script>
+  </body>
+</html>
+
+<!--  Koden meg og Alexander laget på samme oppgave da uten bruk av ID-er
+    <script>
+
+        // Model
+
+        let bgColorSelect = 'white';
+        let txtColor = 'black';
+        let text = 'Life Is Really Simple, But We Insist On Making It Complicated - MVC'
+
+        // View
+        updateView();
+        function updateView() {
+            document.getElementById('content').innerHTML = /*HTML*/`
+                <select oninput="isCheckActive(this)" name="testing">
+                    <option>Velg farge</option>
+                    <option value="#000000">Svart</option>
+                    <option value="#0033cc">Mørke blå</option>
+                    <option value="#e6e6e6">Lys grå</option>
+                    <option value="#1aff1a">Lys grønn</option>
+                    <option value="#ff0000">Lys rød</option>
+                    </select>
+                    <div style="background-color:${bgColorSelect}; color:${txtColor}; font-size:25px; font-family: 'Aboreto', cursive;">${text}</div>
+                <img style="margin-top:200px;height:200px;"src="masterpiece.png"/>
+            `;
+        }
+
+        // Controller
+        function isCheckActive(checkThis) {
+            bgColorSelect = checkThis.value;
+            if (bgColorSelect == '#000000' || bgColorSelect == '#0033cc') {
+                txtColor = 'white';
+            } else txtColor = 'black';
+            updateView();
+        }
+
+    </script> -->
